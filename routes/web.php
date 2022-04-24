@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,29 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-ROute::get('/posts',function (){
-    $post = [[
-        'id' => 1,
-        'title' => 'My First Post',
-        'posted_by' => 'John Doe',
-        'posted_at' => '2019-01-01 12:00:00',
-    ],[
-        'id' => 2,
-        'title' => 'My Second Post',
-        'posted_by' => 'Jane Doe',
-        'posted_at' => '2019-01-02 12:00:00',
-    ],[
-        'id' => 3,
-        'title' => 'My Third Post',
-        'posted_by' => 'John Doe',
-        'posted_at' => '2019-01-03 12:00:00',
-    ],[
-        'id' => 4,
-        'title' => 'My Fourth Post',
-        'posted_by' => 'Jane Doe',
-        'posted_at' => '2019-01-04 12:00:00',
-    ]];
-    return view('posts',[
-        'allPosts'=>$post
-    ]);
-});
+ROute::get('/posts',[PostsController::class,'index']); //index
+#ROute::get('/posts/create',[PostsController::class,'create']); //create
+#ROute::post('/posts',[PostsController::class,'store']); //store
+#ROute::get('/posts/{post}',[PostsController::class,'show']); //show
+#ROute::get('/posts/{post}/edit',[PostsController::class,'edit']); //edit
+#ROute::patch('/posts/{post}',[PostsController::class,'update']); //update
+#ROute::delete('/posts/{post}',[PostsController::class,'destroy']); //destroy

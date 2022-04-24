@@ -23,7 +23,7 @@
     <div class="container mt-5">
     {{-- table --}}
     <a href="#" class="btn btn-success mb-3">Create post</a>
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
             <th scope="col">ID</th>
